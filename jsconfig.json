@@ -1,7 +1,13 @@
 {
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "skipLibCheck": true,
+    "baseUrl": ".", // Add this if it's missing, though it often defaults to the project root
     "paths": {
-      "@/*": ["./src/*"]
+      "@/components/*": ["./src/components/*"]
     }
-  }
+  },
+  "exclude": ["node_modules"] // It's good practice to exclude node_modules
 }
