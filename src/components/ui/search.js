@@ -8,15 +8,12 @@ const SearchCircle = () => {
       height="40px"
       borderRadius="20px"
       backgroundColor="#444444"
-      opacity="0.25"
-      position="absolute"
-      top="30px"
-      left="300px"
       zIndex={2}
       display="flex"
       alignItems="center"
       justifyContent="center"
       cursor="pointer"
+      ml={4} // Add some left margin for spacing
     >
       <Icon as={FaSearch} color="#D2AC71" boxSize="16px" />
     </Box>

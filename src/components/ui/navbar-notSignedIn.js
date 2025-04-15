@@ -1,6 +1,9 @@
-import { Box, Flex, Spacer, Image, Text, chakra } from "@chakra-ui/react"; 
+import { Box, Flex, Spacer, Image, Text, chakra, Icon } from "@chakra-ui/react";
 import Link from "next/link";
 import SearchCircle from "./search";
+import { VscGlobe } from "react-icons/vsc";
+import LoginButton from "./login"; 
+import SignUpButton from "./sign-up"; 
 
 const Navbar = () => {
   return (
@@ -38,16 +41,18 @@ const Navbar = () => {
             </Box>
           </Link>
         </Box>
-        <Spacer />
-        <Box display="flex" alignItems="center">
+
+        <Box display="flex" alignItems="center" ml={6}>
+          <SearchCircle />
+          {/* Navigation Links (as before) */}
           <Link href="/GOE" passHref>
             <Text
               color="#D2AC71"
               fontSize="18px"
-              mr={4}
+              ml={4}
               w="42px"
               h="22px"
-              cursor="pointer" // Indicate it's clickable
+              cursor="pointer"
             >
               GOE
             </Text>
@@ -55,10 +60,10 @@ const Navbar = () => {
           <Link href="/EgyBook" passHref>
             <Text
               fontSize="18px"
-              mr={4}
+              ml={4}
               w="82px"
               h="22px"
-              cursor="pointer" // Indicate it's clickable
+              cursor="pointer"
             >
               <chakra.span fontWeight="600" color="#D2AC71">Egy</chakra.span>
               <chakra.span fontWeight="400" color="white">Book</chakra.span>
@@ -67,42 +72,61 @@ const Navbar = () => {
           <Link href="/EgyExplore" passHref>
             <Text
               fontSize="18px"
-              mr={4}
+              ml={4}
               w="103px"
               h="22px"
-              cursor="pointer" // Indicate it's clickable
+              cursor="pointer"
             >
               <chakra.span fontWeight="600" color="#D2AC71">Egy</chakra.span>
-              <chakra.span fontWeight="400" color="white">Explore</chakra.span> 
+              <chakra.span fontWeight="400" color="white">Explore</chakra.span>
             </Text>
           </Link>
           <Link href="/EgyTales" passHref>
             <Text
               fontSize="18px"
-              mr={4}
+              ml={4}
               w="80px"
               h="22px"
-              cursor="pointer" // Indicate it's clickable
+              cursor="pointer"
             >
               <chakra.span fontWeight="600" color="#D2AC71">Egy</chakra.span>
-              <chakra.span fontWeight="400" color="white">Tales</chakra.span> 
+              <chakra.span fontWeight="400" color="white">Tales</chakra.span>
             </Text>
           </Link>
           <Link href="/EgyTreasure" passHref>
             <Text
               fontSize="18px"
-              mr={4}
+              ml={4}
               w="112px"
               h="22px"
-              cursor="pointer" // Indicate it's clickable
+              cursor="pointer"
             >
               <chakra.span fontWeight="600" color="#D2AC71">Egy</chakra.span>
-              <chakra.span fontWeight="400" color="white">Treasure</chakra.span> 
+              <chakra.span fontWeight="400" color="white">Treasure</chakra.span>
             </Text>
           </Link>
-          <Box ml={4}>
-            <SearchCircle />
+        </Box>
+
+        <Spacer />
+
+        <Box display="flex" alignItems="center">
+          <Box display="flex" alignItems="center" mr={4}> {/* Language Group */}
+            <Icon as={VscGlobe} color="white" boxSize="28px" />
+            <Text
+              color="#F6EEE5"
+              ml={2}
+              fontSize="20px"
+              fontFamily="Montserrat"
+              fontWeight="400"
+              lineHeight="24px"
+            >
+              EN
+            </Text>
           </Box>
+
+          {/* Replace inline buttons with imported components */}
+          <LoginButton mr={2} />
+          <SignUpButton />
         </Box>
       </Flex>
     </Box>
