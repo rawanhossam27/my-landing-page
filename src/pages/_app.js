@@ -6,6 +6,7 @@ import MostRelevant from "../components/ui/most-relevant"; // Import the most-re
 import Discover from '../components/ui/discover';  // Import the most-relevant component
 import Why from '../components/ui/why';
 import Trending from '../components/ui/trending';
+import Ready from '../components/ui/ready';
 
 export default function App({ Component, pageProps }) {
   return (
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }) {
       <Discover/>
       <Why/>
       <Trending/>
+      <Ready/>
       <Component {...pageProps} />
     </Provider>
   );
