@@ -14,7 +14,7 @@ const Why = () => {
         fontSize="40px"
         lineHeight="100%"
         letterSpacing="0%"
-        color="#FFFFFF"
+        color="#F6EEE5"
         mb={8}
       >
         <chakra.span fontWeight={800}>Why choose </chakra.span>

@@ -32,17 +32,17 @@ const Discover = () => {
   return (
     <Box paddingX={{ base: 4, md: 8, lg: 16 }} marginTop={8} marginBottom={8} position="relative">
       <Heading
-        width="421px" // Keeping in mind the header width
+        width="auto" // Keeping in mind the header width
         height="49px"
         fontFamily="Montserrat"
         fontWeight={800}
         fontSize="40px"
         lineHeight="100%"
         letterSpacing="0%"
-        color="#FFFFFF"
+        color="#F6EEE5"
         mb={4}
       >
-        Dicover New Places
+        Discover New Places
       </Heading>
 
       <Flex
