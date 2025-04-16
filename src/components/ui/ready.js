@@ -6,16 +6,15 @@ const Ready = () => {
     <Flex
       width="1140px"
       height="466px"
-      position="absolute"
-      top="2405px"
-      left="150px"
       borderRadius="24px"
-      overflow="hidden" // Clip the content to the border radius
+      overflow="hidden"
       zIndex={1}
+      mx="auto"
+      my="80px"
     >
       {/* Left Section (Text and Button) */}
       <Box
-        width="591px" // Adjust width to accommodate text and button
+        width="591px"
         height="100%"
         bg="#BFDBC9"
         paddingLeft="40px"
@@ -29,7 +28,6 @@ const Ready = () => {
             fontWeight="700"
             fontSize="48px"
             lineHeight="100%"
-            letterSpacing="0%"
             color="#0F1F18"
             width="512px"
           >
@@ -40,19 +38,17 @@ const Ready = () => {
             fontWeight="400"
             fontSize="24px"
             lineHeight="100%"
-            letterSpacing="0%"
             color="#0F1F18"
             width="508px"
           >
-            Get exclusive deals and immersive previews with our smart booking
-            platform.
+            Get exclusive deals and immersive previews with our smart booking platform.
           </Text>
         </VStack>
 
         {/* Button */}
-        <Box mt={8}> {/* Add some margin top to separate from text */}
+        <Box mt={8}>
           <Box
-            width="374px" // Adjusted width based on the image
+            width="374px"
             height="45px"
             bg="#458465"
             borderRadius="full"
@@ -65,7 +61,6 @@ const Ready = () => {
               fontWeight="600"
               fontSize="20px"
               lineHeight="20px"
-              letterSpacing="0%"
               color="#F1F8F4"
             >
               Book now

@@ -1,4 +1,5 @@
-import { Box, Text, VStack } from '@chakra-ui/react'; // Chakra UI components
+import { Box, VStack } from '@chakra-ui/react'; // Chakra UI components
+import Footer from '../components/ui/footer'; // Import Footer component
 
 export default function Home() {
   const baseBackgroundColor = '#121212';
@@ -8,7 +9,7 @@ export default function Home() {
   return (
     <Box
       minHeight="100vh"
-      bg={`linear-gradient(to bottom, ${baseBackgroundColor}, ${baseBackgroundColor} 80%, ${yellowWithOpacity} 95%)`} // Concentrated yellow at the bottom
+      bg={`linear-gradient(to bottom, ${baseBackgroundColor}, ${baseBackgroundColor} 80%, ${yellowWithOpacity} 95%)`} // Gradient background
       p={4}
       display="flex"
       flexDirection="column"
@@ -16,7 +17,7 @@ export default function Home() {
     >
       {/* Header section */}
       <Box as="header" textAlign="center" mb={8}>
-        {/* You can add a logo or navigation here if necessary */}
+        {/* Add a logo or navigation here if necessary */}
       </Box>
 
       {/* Main content section (takes up remaining vertical space) */}
@@ -24,18 +25,8 @@ export default function Home() {
         {/* Add your main page content here */}
       </VStack>
 
-      {/* Footer section (aligned to the bottom right) */}
-      <Box
-        as="footer"
-        textAlign="right"
-        mt={12}
-        color="gray.500"
-        alignSelf="flex-end"
-      >
-        <Text fontSize="sm" color={'white'}>
-          Copyright Gates of Egypt © 2024 All rights reserved
-        </Text>
-      </Box>
+      {/* Footer appears on top of the gradient background */}
+      <Footer />
     </Box>
   );
 }
