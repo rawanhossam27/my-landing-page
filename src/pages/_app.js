@@ -4,6 +4,7 @@ import '../styles/globals.css';
 import HeroSection from "../components/ui/welcome"; // Import the Welcome component
 import MostRelevant from "../components/ui/most-relevant"; // Import the most-relevant component
 import Discover from '../components/ui/discover';  // Import the most-relevant component
+import Why from '../components/ui/why';
 
 export default function App({ Component, pageProps }) {
   return (
@@ -12,6 +13,7 @@ export default function App({ Component, pageProps }) {
       <HeroSection /> 
       <MostRelevant/>
       <Discover/>
+      <Why/>
       <Component {...pageProps} />
     </Provider>
   );
