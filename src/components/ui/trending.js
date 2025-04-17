@@ -133,7 +133,7 @@ const Trending = () => {
               height="45px"
               fontSize="20px"
               lineHeight="20px"
-              _hover={{ bg: 'rgba(0, 0, 0, 0.9)' }}
+              _hover={{ bg: 'gray.200' }} // Changed hover background to a lighter shade of grey
               zIndex={1}
             >
               See Hotels

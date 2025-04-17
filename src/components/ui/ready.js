@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Text, VStack, Flex } from '@chakra-ui/react';
+import { Box, Image, Text, VStack, Flex, Link } from '@chakra-ui/react';
 
 const Ready = () => {
   return (
@@ -10,7 +10,7 @@ const Ready = () => {
       overflow="hidden"
       zIndex={1}
       mx="auto"
-      my="80px"
+      marginBottom="0" // Ensuring no bottom margin by default
     >
       {/* Left Section (Text and Button) */}
       <Box
@@ -25,7 +25,7 @@ const Ready = () => {
         <VStack align="flex-start" spacing={2}>
           <Text
             fontFamily="Montserrat"
-            fontWeight="700"
+            fontWeight={700}
             fontSize="48px"
             lineHeight="100%"
             color="#0F1F18"
@@ -35,7 +35,7 @@ const Ready = () => {
           </Text>
           <Text
             fontFamily="Montserrat"
-            fontWeight="400"
+            fontWeight={400}
             fontSize="24px"
             lineHeight="100%"
             color="#0F1F18"
@@ -47,25 +47,28 @@ const Ready = () => {
 
         {/* Button */}
         <Box mt={8}>
-          <Box
-            width="374px"
-            height="45px"
-            bg="#458465"
-            borderRadius="full"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Text
-              fontFamily="Montserrat"
-              fontWeight="600"
-              fontSize="20px"
-              lineHeight="20px"
-              color="#F1F8F4"
+          <Link href="#" passHref>
+            <Box
+              width="374px"
+              height="45px"
+              bg="#458465"
+              borderRadius="full"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              _hover={{ opacity: 0.8 }}
             >
-              Book now
-            </Text>
-          </Box>
+              <Text
+                fontFamily="Montserrat"
+                fontWeight="600"
+                fontSize="20px"
+                lineHeight="20px"
+                color="#F1F8F4"
+              >
+                Book now
+              </Text>
+            </Box>
+          </Link>
         </Box>
       </Box>
 
