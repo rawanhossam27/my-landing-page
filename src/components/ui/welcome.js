@@ -1,26 +1,11 @@
 import { Box, Flex, Icon, Text, Link } from '@chakra-ui/react';
 import { IoNavigate } from 'react-icons/io5';
-import { CiLocationOn, CiCalendar } from "react-icons/ci";
-import { LuUsers } from "react-icons/lu";
+import LocationItems from './location';
+import CalendarItems from './calender';
+import PeopleItems from './people';
 
 const HeroSection = () => {
   const heroBackgroundImage = '/HeroBG.png';
-
-  // Handlers for clicks
-  const handleLocationClick = () => {
-    alert('Location icon clicked');
-    // You can replace this with actual navigation or actions
-  };
-
-  const handleCalendarClick = () => {
-    alert('Calendar icon clicked');
-    // You can replace this with actual navigation or actions
-  };
-
-  const handlePeopleClick = () => {
-    alert('People icon clicked');
-    // You can replace this with actual navigation or actions
-  };
 
   return (
     <Box
@@ -105,23 +90,9 @@ const HeroSection = () => {
         paddingLeft={6}
         paddingRight={6}
         justifyContent="space-around"
+        zIndex={1} // Set zIndex of the oval bar to 1 (or lower)
       >
-        {/* Location Icon and Text */}
-        <Flex alignItems="center" cursor="pointer" onClick={handleLocationClick}>
-          <Icon as={CiLocationOn} boxSize={`${26}px`} color="#D2AC71" mr={2} />
-          <Text
-            width="auto"
-            height={`${20}px`}
-            fontFamily="Montserrat"
-            fontWeight={600}
-            fontSize="16px"
-            lineHeight="100%"
-            letterSpacing="0%"
-            color="#FFFFFF"
-          >
-            Cairo, Egypt
-          </Text>
-        </Flex>
+        <LocationItems />
 
         {/* Vertical Line using Box */}
         <Box
@@ -130,23 +101,7 @@ const HeroSection = () => {
           backgroundColor="rgba(0, 0, 0, 0.2)"
         />
 
-        {/* Calendar Icon and Date */}
-        <Flex alignItems="center" cursor="pointer" onClick={handleCalendarClick}>
-          <Icon as={CiCalendar} boxSize={`${26}px`} color="#D2AC71" mr={2} />
-          <Text
-            width="auto"
-            height={`${20}px`}
-            fontFamily="Montserrat"
-            fontWeight={600}
-            fontSize="16px"
-            lineHeight="100%"
-            letterSpacing="0%"
-            color="#FFFFFF"
-            textAlign="center"
-          >
-            19 March 2025 - 27 Mar..
-          </Text>
-        </Flex>
+        <CalendarItems />
 
         {/* Vertical Line using Box */}
         <Box
@@ -155,23 +110,7 @@ const HeroSection = () => {
           backgroundColor="rgba(0, 0, 0, 0.2)"
         />
 
-        {/* Users Icon and Text */}
-        <Flex alignItems="center" cursor="pointer" onClick={handlePeopleClick}>
-          <Icon as={LuUsers} boxSize={`${26}px`} color="#D2AC71" mr={2} />
-          <Text
-            width="auto"
-            height={`${20}px`}
-            fontFamily="Montserrat"
-            fontWeight={600}
-            fontSize="16px"
-            lineHeight="100%"
-            letterSpacing="0%"
-            color="#FFFFFF"
-            textAlign="center"
-          >
-            2 Adults, 1 Child, 1 Infant
-          </Text>
-        </Flex>
+        <PeopleItems />
 
         {/* Explore Stays Button */}
         <Link href="#" passHref>
