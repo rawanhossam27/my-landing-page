@@ -1,40 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Gates of Egypt 🌴🇪🇬
 
-## Getting Started
+A sleek and modern travel website built using **Next.js**, **Tailwind CSS**, and **Chakra UI**, designed to help users explore and discover the best stays in Egypt. This is the front-end prototype of the project with basic UI components and some implemented features like search and date selection.
 
-First, run the development server:
+---
+
+## 🚀 Tech Stack
+
+- [Next.js](https://nextjs.org/) – React framework for server-rendered apps.
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework for styling.
+- [Chakra UI](https://chakra-ui.com/) – Modular and accessible component library for React.
+
+---
+
+## 📁 File Structure & Component Overview
+
+### `navbar-notSignedIn/`
+- **Navbar components** for users who aren't signed in.
+- Includes **Login** and **Signup** buttons (currently non-functional).
+- Contains the **Search** functionality:
+  - `search.js`: Opens a text box for search input.
+  - Dropdown for **most popular searches**.
+
+### `welcome.js`
+- Displays the **main welcome section** with background and text.
+- Includes a styled **oval reservation bar**, which renders:
+  - `location.js`: Dropdown to select a **location**.
+  - `calendar.js`: Functional calendar to pick **start and end dates**.
+  - `people.js`: Dropdown with counters to select **number of adults, children, and rooms**.
+  - **Explore Stays** button (currently non-functional).
+
+### `most-relevant.js`
+- Displays **most relevant places** with horizontal scroll.
+- Uses:
+  - `move-left.js` and `move-right.js`: Navigation arrows for scrolling.
+
+### `discover.js`
+- Section to **discover new places**.
+- Also includes horizontal navigation using `move-left.js` and `move-right.js`.
+
+### `why.js`
+- Outlines **reasons to choose EGYbook** for travelling in Egypt.
+
+### `trending.js`
+- Showcases **trending destinations**.
+- Adds a **hue effect** over photos.
+- Renders left/right movement with `move-left.js` and `move-right.js`.
+
+### `ready.js`
+- Displays **"Ready to Explore New Places"** call-to-action.
+- Includes a **Book Now** button (currently non-functional).
+
+### `footer.js`
+- Contains the **footer section**:
+  - Social media links.
+  - Copyright.
+  - Logo.
+  - Yellow hue styling at the bottom.
+
+---
+
+## 🔧 Features in Progress
+
+## 🔧 Features in Progress
+
+- 🔒 Authentication (Login/Signup)
+- 🧭 Functional navigation & routing
+- 🔍 Explore stays functionality
+- 👤 Signed-in page and navbar
+- 📱 Responsive mobile-first design
+
+---
+
+
+## 🛠 How to Run
 
 ```bash
+# Clone the repository
+git clone https://github.com/rawanhossam27/my-landing-page-GOE
+
+# Navigate into the project directory
+cd my-landing-page-GOE
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
