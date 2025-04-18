@@ -1,4 +1,3 @@
-// components/ui/welcome.js
 import { Box, Flex, Icon, Text, Link } from '@chakra-ui/react';
 import { IoNavigate } from 'react-icons/io5';
 import { CiLocationOn, CiCalendar } from "react-icons/ci";
@@ -6,6 +5,22 @@ import { LuUsers } from "react-icons/lu";
 
 const HeroSection = () => {
   const heroBackgroundImage = '/HeroBG.png';
+
+  // Handlers for clicks
+  const handleLocationClick = () => {
+    alert('Location icon clicked');
+    // You can replace this with actual navigation or actions
+  };
+
+  const handleCalendarClick = () => {
+    alert('Calendar icon clicked');
+    // You can replace this with actual navigation or actions
+  };
+
+  const handlePeopleClick = () => {
+    alert('People icon clicked');
+    // You can replace this with actual navigation or actions
+  };
 
   return (
     <Box
@@ -92,7 +107,7 @@ const HeroSection = () => {
         justifyContent="space-around"
       >
         {/* Location Icon and Text */}
-        <Flex alignItems="center">
+        <Flex alignItems="center" cursor="pointer" onClick={handleLocationClick}>
           <Icon as={CiLocationOn} boxSize={`${26}px`} color="#D2AC71" mr={2} />
           <Text
             width="auto"
@@ -116,7 +131,7 @@ const HeroSection = () => {
         />
 
         {/* Calendar Icon and Date */}
-        <Flex alignItems="center">
+        <Flex alignItems="center" cursor="pointer" onClick={handleCalendarClick}>
           <Icon as={CiCalendar} boxSize={`${26}px`} color="#D2AC71" mr={2} />
           <Text
             width="auto"
@@ -141,7 +156,7 @@ const HeroSection = () => {
         />
 
         {/* Users Icon and Text */}
-        <Flex alignItems="center">
+        <Flex alignItems="center" cursor="pointer" onClick={handlePeopleClick}>
           <Icon as={LuUsers} boxSize={`${26}px`} color="#D2AC71" mr={2} />
           <Text
             width="auto"
