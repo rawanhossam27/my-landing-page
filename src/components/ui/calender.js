@@ -31,9 +31,8 @@ const CalendarDayAbbreviation = ({ day }) => (
         height="auto"
         display="flex"
         alignItems="flex-start"
-        justifyContent="flex-end" // Moved to flex-end to align right
-        mb="2px"
-        pr="4px" // Added some right padding
+        justifyContent="center" // Centered the text
+        mb="8px"
     >
         <Text
             fontFamily="Montserrat"
@@ -42,7 +41,7 @@ const CalendarDayAbbreviation = ({ day }) => (
             lineHeight="100%"
             letterSpacing="0%"
             color="#FFFFFF"
-            textAlign="right" // Ensured text is also right-aligned
+            textAlign="center" // Ensured text is centered
         >
             {day}
         </Text>
@@ -56,11 +55,14 @@ const CalendarDayNumber = ({ day }) => (
         display="flex"
         alignItems="center"
         justifyContent="center"
-        color="#FFFFFF"
+        color="#333333"
         fontSize="16px"
         fontFamily="Montserrat"
         fontWeight={500}
         borderRadius="8px"
+        border="1px solid #D2AC71"
+        backgroundColor="#F6EEE5"
+        boxShadow="0px 0px 3px 0px rgba(0, 0, 0, 0.25) inset"
     >
         {day}
     </Box>
@@ -148,6 +150,14 @@ const CalendarItems = () => {
         gridTemplateColumns: 'repeat(7, 1fr)',
         gap: '5px',
         marginTop: '5px',
+    };
+
+    const daysOfWeekGridStyle = {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(7, 1fr)',
+        marginBottom: '8px', // Increased margin bottom for the abbreviations
+        textAlign: 'center',
+        width: '100%',
     };
 
     const leftHalfStyle = {
@@ -259,7 +269,7 @@ const CalendarItems = () => {
                                 </Text>
                                 <Box width="auto" />
                             </Flex>
-                            <Flex style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)' }}>
+                            <Flex style={daysOfWeekGridStyle}>
                                 {daysOfWeek.map((day, index) => (
                                     <CalendarDayAbbreviation key={index} day={day} />
                                 ))}
@@ -274,7 +284,7 @@ const CalendarItems = () => {
                                 </Text>
                                 <Icon as={FaChevronRight} width="16px" height="16px" marginTop="32.5px" cursor="pointer" onClick={goToNextMonth} />
                             </Flex>
-                            <Flex style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)' }}>
+                            <Flex style={daysOfWeekGridStyle}>
                                 {daysOfWeek.map((day, index) => (
                                     <CalendarDayAbbreviation key={`next-${index}`} day={day} />
                                 ))}
