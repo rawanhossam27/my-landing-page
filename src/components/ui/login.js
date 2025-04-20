@@ -1,8 +1,9 @@
 // components/LoginButton.js
-
+import { useRouter } from "next/router";
 import { Button } from "@chakra-ui/react";
 
 const LoginButton = (props) => {
+  const router = useRouter();
   return (
     <Button
       bg="#D2AC71"
@@ -16,7 +17,7 @@ const LoginButton = (props) => {
       _hover={{ opacity: 0.85 }}
       _active={{ opacity: 0.7 }}
       cursor="pointer"
-      onClick={() => console.log("Login button clicked")}
+      onClick={() => router.push("/login-page")} // Updated route to "/login-page"
       {...props}
     >
       Login

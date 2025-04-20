@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   // List of standalone routes (pages that should not show homepage stuff)
-  const isStandalonePage = router.pathname === "/signup-page";
+  const isStandalonePage = router.pathname === "/signup-page" || router.pathname === "/login-page"; // Added "/login-page"
 
   return (
     <Provider>

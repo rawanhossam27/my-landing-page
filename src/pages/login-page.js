@@ -8,20 +8,17 @@ const baseBackgroundColor = "#121212";
 
 const yellowWithIncreasedOpacity = `rgba(${parseInt(iconYellow.slice(1, 3), 16)}, ${parseInt(iconYellow.slice(3, 5), 16)}, ${parseInt(iconYellow.slice(5, 7), 16)}, 0.3)`;
 
-export default function SignUpPage() {
+const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [mounted, setMounted] = useState(false); // Add a mounted state
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true); // Set mounted to true after the initial render
+    setMounted(true);
   }, []);
 
   const handleShowPassword = () => setShowPassword(!showPassword);
-  const handleShowConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
 
   const inputStyle = {
     pr: "40px",
@@ -53,16 +50,15 @@ export default function SignUpPage() {
   };
 
   const handleSubmit = () => {
-    console.log("Form submitted:", { email, password, confirmPassword });
+    console.log("Form submitted:", { email, password });
   };
 
-  const handleGoogleSignUp = () => {
-    console.log("Google Sign Up clicked");
+  const handleGoogleLogin = () => { //Renamed
+    console.log("Google Sign In clicked");  //Renamed
   };
 
-  // Only render inputs after the component has mounted
   if (!mounted) {
-    return null; // Or a loading indicator if you prefer
+    return null;
   }
 
   return (
@@ -84,12 +80,12 @@ export default function SignUpPage() {
           color="black"
         >
           <Text fontSize="2xl" fontFamily="Montserrat" color="#D7A411" fontWeight="bold" mb={6} textAlign="center">
-            Create Account
+            Login
           </Text>
 
           {/* Email Input */}
           <Input
-            name="new-email" // Changed name
+            name="new-email"
             autoComplete="off"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -102,7 +98,7 @@ export default function SignUpPage() {
           {/* Password Input */}
           <Box style={inputWrapperStyle}>
             <Input
-              name="new-password" // Changed name
+              name="new-password"
               type={showPassword ? "text" : "password"}
               autoComplete="new-password"
               value={password}
@@ -119,27 +115,7 @@ export default function SignUpPage() {
             />
           </Box>
 
-          {/* Confirm Password Input */}
-          <Box style={inputWrapperStyle}>
-            <Input
-              name="new-confirm-password"   // Changed name
-              type={showConfirmPassword ? "text" : "password"}
-              autoComplete="new-password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Confirm Password"
-              size="sm"
-              {...inputStyle}
-            />
-            <Icon
-              as={showConfirmPassword ? MdVisibility : MdVisibilityOff}
-              onClick={handleShowConfirmPassword}
-              style={iconStyle}
-              fontSize="20px"
-            />
-          </Box>
-
-          {/* Sign Up Button */}
+          {/* Login Button */}
           <Button
             onClick={handleSubmit}
             bg="#D7A411"
@@ -152,7 +128,7 @@ export default function SignUpPage() {
             fontWeight="bold"
             mb={6}
           >
-            Sign Up
+            Login
           </Button>
 
           {/* Divider */}
@@ -164,9 +140,9 @@ export default function SignUpPage() {
             <Box flex="1" height="1px" backgroundColor="#D2AC71" />
           </Box>
 
-          {/* Google Sign Up */}
+          {/* Google Login */}
           <Button
-            onClick={handleGoogleSignUp}
+            onClick={handleGoogleLogin}
             bg="white"
             color="gray.600"
             size="lg"
@@ -182,19 +158,21 @@ export default function SignUpPage() {
             gap={3}
           >
             <Icon as={FcGoogle} boxSize={6} /> {/* Ensure the Google icon size is specified */}
-            Sign Up with Google
+            Login with Google
           </Button>
+          
 
-
-          {/* Login Link */}
+          {/* Sign Up Link */}
           <Text fontSize="14px" color="black" textAlign="center" mt={4}>
-            <span>Already have an account? </span>
-            <Link href="/login-page" color="#007BFF" fontWeight="bold" textDecoration="underline">  {/* Changed to /login-page */}
-              Login
+            <span>Don't have an account? </span>
+            <Link href="/signup-page" color="#007BFF" fontWeight="bold" textDecoration="underline">  {/*Changed to /signup-page*/}
+              Sign Up
             </Link>
           </Text>
         </Box>
       </Flex>
     </Box>
   );
-}
+};
+
+export default LoginPage;
