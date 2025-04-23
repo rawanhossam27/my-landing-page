@@ -1,7 +1,16 @@
-import { Box, Text, Flex, Input, Button, Icon, Link } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Flex,
+  Input,
+  Button,
+  Icon,
+  Link,
+} from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const iconYellow = "#D7A411";
 const baseBackgroundColor = "#121212";
@@ -14,10 +23,12 @@ export default function SignUpPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [mounted, setMounted] = useState(false); // Add a mounted state
+  const [mounted, setMounted] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
-    setMounted(true); // Set mounted to true after the initial render
+    setMounted(true);
   }, []);
 
   const handleShowPassword = () => setShowPassword(!showPassword);
@@ -53,17 +64,14 @@ export default function SignUpPage() {
   };
 
   const handleSubmit = () => {
-    console.log("Form submitted:", { email, password, confirmPassword });
+    router.push("/signedIn-page");
   };
 
   const handleGoogleSignUp = () => {
     console.log("Google Sign Up clicked");
   };
 
-  // Only render inputs after the component has mounted
-  if (!mounted) {
-    return null; // Or a loading indicator if you prefer
-  }
+  if (!mounted) return null;
 
   return (
     <Box
@@ -83,13 +91,20 @@ export default function SignUpPage() {
           width={{ base: "100%", sm: "400px" }}
           color="black"
         >
-          <Text fontSize="2xl" fontFamily="Montserrat" color="#D7A411" fontWeight="bold" mb={6} textAlign="center">
+          <Text
+            fontSize="2xl"
+            fontFamily="Montserrat"
+            color="#D7A411"
+            fontWeight="bold"
+            mb={6}
+            textAlign="center"
+          >
             Create Account
           </Text>
 
           {/* Email Input */}
           <Input
-            name="new-email" // Changed name
+            name="new-email"
             autoComplete="off"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -102,7 +117,7 @@ export default function SignUpPage() {
           {/* Password Input */}
           <Box style={inputWrapperStyle}>
             <Input
-              name="new-password" // Changed name
+              name="new-password"
               type={showPassword ? "text" : "password"}
               autoComplete="new-password"
               value={password}
@@ -122,7 +137,7 @@ export default function SignUpPage() {
           {/* Confirm Password Input */}
           <Box style={inputWrapperStyle}>
             <Input
-              name="new-confirm-password"   // Changed name
+              name="new-confirm-password"
               type={showConfirmPassword ? "text" : "password"}
               autoComplete="new-password"
               value={confirmPassword}
@@ -158,7 +173,13 @@ export default function SignUpPage() {
           {/* Divider */}
           <Box display="flex" alignItems="center" mb={6}>
             <Box flex="1" height="1px" backgroundColor="#D2AC71" />
-            <Text fontFamily="Montserrat" fontWeight="400" fontSize="16px" color="#D7A411" mx={4}>
+            <Text
+              fontFamily="Montserrat"
+              fontWeight="400"
+              fontSize="16px"
+              color="#D7A411"
+              mx={4}
+            >
               or
             </Text>
             <Box flex="1" height="1px" backgroundColor="#D2AC71" />
@@ -181,15 +202,19 @@ export default function SignUpPage() {
             justifyContent="center"
             gap={3}
           >
-            <Icon as={FcGoogle} boxSize={6} /> {/* Ensure the Google icon size is specified */}
+            <Icon as={FcGoogle} boxSize={6} />
             Sign Up with Google
           </Button>
-
 
           {/* Login Link */}
           <Text fontSize="14px" color="black" textAlign="center" mt={4}>
             <span>Already have an account? </span>
-            <Link href="/login-page" color="#007BFF" fontWeight="bold" textDecoration="underline">  {/* Changed to /login-page */}
+            <Link
+              href="/login-page"
+              color="#007BFF"
+              fontWeight="bold"
+              textDecoration="underline"
+            >
               Login
             </Link>
           </Text>

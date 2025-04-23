@@ -54,7 +54,7 @@ const LoginPage = () => {
   };
 
   const handleGoogleLogin = () => { //Renamed
-    console.log("Google Sign In clicked");  //Renamed
+    console.log("Google Sign In clicked");   //Renamed
   };
 
   if (!mounted) {
@@ -78,9 +78,10 @@ const LoginPage = () => {
           boxShadow="lg"
           width={{ base: "100%", sm: "400px" }}
           color="black"
+          fontFamily="Montserrat" // Applied to the container
         >
-          <Text fontSize="2xl" fontFamily="Montserrat" color="#D7A411" fontWeight="bold" mb={6} textAlign="center">
-            Login
+          <Text fontSize="30px" color="#D7A411" fontWeight="bold" mb={6} textAlign="center">
+            Login to your account
           </Text>
 
           {/* Email Input */}
@@ -124,8 +125,8 @@ const LoginPage = () => {
             width="100%"
             borderRadius="20px"
             _hover={{ bg: "#c7970f" }}
-            fontFamily="Montserrat"
             fontWeight="bold"
+            fontSize="18px"
             mb={6}
           >
             Login
@@ -134,7 +135,7 @@ const LoginPage = () => {
           {/* Divider */}
           <Box display="flex" alignItems="center" mb={6}>
             <Box flex="1" height="1px" backgroundColor="#D2AC71" />
-            <Text fontFamily="Montserrat" fontWeight="400" fontSize="16px" color="#D7A411" mx={4}>
+            <Text fontWeight="400" fontSize="16px" color="#D7A411" mx={4}>
               or
             </Text>
             <Box flex="1" height="1px" backgroundColor="#D2AC71" />
@@ -150,7 +151,6 @@ const LoginPage = () => {
             borderRadius="20px"
             border="2px solid #D2AC71"
             _hover={{ bg: "#F2F2F2" }}
-            fontFamily="Montserrat"
             fontWeight="bold"
             display="flex"
             alignItems="center"
@@ -160,12 +160,12 @@ const LoginPage = () => {
             <Icon as={FcGoogle} boxSize={6} /> {/* Ensure the Google icon size is specified */}
             Login with Google
           </Button>
-          
+
 
           {/* Sign Up Link */}
           <Text fontSize="14px" color="black" textAlign="center" mt={4}>
             <span>Don't have an account? </span>
-            <Link href="/signup-page" color="#007BFF" fontWeight="bold" textDecoration="underline">  {/*Changed to /signup-page*/}
+            <Link href="/signup-page" color="#007BFF" fontWeight="bold" textDecoration="underline"> {/*Changed to /signup-page*/}
               Sign Up
             </Link>
           </Text>
