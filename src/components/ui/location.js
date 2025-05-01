@@ -12,6 +12,7 @@ const cityList = [
     // Add more cities as needed
 ];
 
+  
 const LocationItems = () => {
     const [isDropdownVisible, setDropdownVisible] = useState(false);
     const [selectedCity, setSelectedCity] = useState(null);
@@ -23,6 +24,10 @@ const LocationItems = () => {
     const toggleDropdown = () => {
         setDropdownVisible(!isDropdownVisible);
     };
+    const setRefs = (el) => {
+        locationTextRef.current = el;
+        locationFlexRef.current = el;
+      };
 
     const closeDropdown = () => {
         setDropdownVisible(false);
@@ -62,12 +67,12 @@ const LocationItems = () => {
     return (
         <Box position="relative">
             <Flex
-                alignItems="center"
-                cursor="pointer"
-                onClick={toggleDropdown}
-                ref={locationTextRef}
-                ref={locationFlexRef}
-            >
+  alignItems="center"
+  cursor="pointer"
+  onClick={toggleDropdown}
+  ref={setRefs} 
+>
+
                 <Icon as={CiLocationOn} boxSize={`${26}px`} color="#D2AC71" mr={2} />
                 <Text
                     width="auto"

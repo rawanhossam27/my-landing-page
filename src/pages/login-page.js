@@ -164,7 +164,7 @@ const LoginPage = () => {
 
           {/* Sign Up Link */}
           <Text fontSize="14px" color="black" textAlign="center" mt={4}>
-            <span>Don't have an account? </span>
+            <span>Don&rsquo;t have an account? </span>
             <Link href="/signup-page" color="#007BFF" fontWeight="bold" textDecoration="underline"> {/*Changed to /signup-page*/}
               Sign Up
             </Link>

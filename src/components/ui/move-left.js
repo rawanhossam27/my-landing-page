@@ -6,6 +6,7 @@ const MoveLeft = ({ onClick }) => { // Receive the onClick prop
     <Box
       position="absolute"
       top="calc(50% - 20px)"
+      marginTop="25px"
       left="16px"
       width="41.5px"
       height="40px"

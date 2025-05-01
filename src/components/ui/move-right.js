@@ -7,6 +7,7 @@ const MoveRight = ({ onClick }) => { // Receive the onClick prop
       position="absolute"
       top="calc(50% - 20px)"
       right="16px"
+      marginTop="25px"
       width="41.5px"
       height="40px"
       bg="#FFFFFF"
