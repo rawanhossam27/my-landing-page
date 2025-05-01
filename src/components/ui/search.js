@@ -253,7 +253,7 @@ const SearchCircle = () => {
                   letterSpacing="-0.16px"
                   color="#F6EEE5"
                 >
-                  See all results for &quot{searchText}&quot
+                  See all results for &quot;{searchText}&quot;
                 </Text>
                 <Box mr="-30px"> {/* Pushes it further right */}
                   <Icon
