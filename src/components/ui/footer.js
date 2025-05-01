@@ -6,9 +6,10 @@ const Footer = () => {
     { src: '/instagram.png', alt: 'Instagram', href: '#' },
     { src: '/facebook.png', alt: 'Facebook', href: '#' },
     { src: '/tiktok.png', alt: 'TikTok', href: '#' },
-    { src: '/twitterX.png', alt: 'Twitter/X', href: '#' },
-    { src: '/linkedIn.png', alt: 'LinkedIn', href: '#' },
+    { src: '/twitterx.png', alt: 'Twitter/X', href: '#' },
+    { src: '/linkedin.png', alt: 'LinkedIn', href: '#' },
   ];
+  
 
   return (
     <Box
