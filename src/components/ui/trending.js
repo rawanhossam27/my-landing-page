@@ -1,4 +1,3 @@
-// components/ui/trending.js
 import React from 'react';
 import { Box, Heading, Flex, Text, Button } from '@chakra-ui/react';
 import Image from 'next/image';
@@ -48,15 +47,13 @@ const Trending = () => {
   };
 
   return (
-    <Box paddingX={{ base: 4, md: 8, lg: 16 }} marginTop={16} marginBottom={16} position="relative">
+    <Box paddingX={{ base: 4, md: 8, lg: 16 }} mt={16} mb={16} position="relative">
       <Heading
-        width="476px"
-        height="49px"
+        w={{ base: '100%', md: '476px' }}
         fontFamily="Montserrat"
         fontWeight={800}
-        fontSize="40px"
-        lineHeight="100%"
-        letterSpacing="0%"
+        fontSize={{ base: '28px', md: '36px', lg: '40px' }}
+        lineHeight="1"
         color="#F6EEE5"
         mb={4}
       >
@@ -74,8 +71,8 @@ const Trending = () => {
         {trendingDestinationsData.map((destination, index) => (
           <Box
             key={index}
-            width="450px"
-            height="360px"
+            width={{ base: '300px', sm: '350px', md: '400px', lg: '450px' }}
+            height={{ base: '280px', sm: '300px', md: '330px', lg: '360px' }}
             borderRadius="24px"
             position="relative"
             overflow="hidden"
@@ -102,7 +99,7 @@ const Trending = () => {
               left="16px"
               fontFamily="Montserrat"
               fontWeight={600}
-              fontSize="48px"
+              fontSize={{ base: '32px', md: '40px', lg: '48px' }}
               color="#FFFFFF"
               zIndex={1}
             >
@@ -110,12 +107,12 @@ const Trending = () => {
             </Text>
             <Text
               position="absolute"
-              top="calc(16px + 48px + 8px)"
+              top={{ base: 'calc(16px + 32px + 8px)', md: 'calc(16px + 40px + 8px)', lg: 'calc(16px + 48px + 8px)' }}
               left="16px"
               fontFamily="Montserrat"
               fontWeight={600}
-              fontSize="26px"
-              lineHeight="32px"
+              fontSize={{ base: '16px', md: '20px', lg: '26px' }}
+              lineHeight="1.3"
               color="#FFFFFF"
               zIndex={1}
             >
@@ -129,11 +126,11 @@ const Trending = () => {
               color="#121212"
               borderRadius="full"
               fontWeight={600}
-              width="200px"
-              height="45px"
-              fontSize="20px"
+              width={{ base: '140px', md: '160px', lg: '200px' }}
+              height="40px"
+              fontSize={{ base: '16px', md: '18px', lg: '20px' }}
               lineHeight="20px"
-              _hover={{ bg: 'gray.200' }} // Changed hover background to a lighter shade of grey
+              _hover={{ bg: 'gray.200' }}
               zIndex={1}
             >
               See Hotels

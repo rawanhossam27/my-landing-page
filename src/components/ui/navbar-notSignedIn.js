@@ -7,9 +7,9 @@ import SignUpButton from "./sign-up";
 const Navbar = () => {
   return (
     <Box as="nav" p={4} color="#121212" h="100px" position="relative">
-      <Flex alignItems="center">
+      <Flex alignItems="center" justify="space-between" wrap="wrap">
         {/* Logo */}
-        <Box ml={6}>
+        <Box ml={6} mb={{ base: 4, md: 0 }}>
           <Box position="relative" width="100px" height="59.54px" cursor="pointer">
             <Image
               src="/LOGO 2.png"
@@ -41,62 +41,47 @@ const Navbar = () => {
         </Box>
 
         {/* Nav Items */}
-        <Box display="flex" alignItems="center" ml={6}>
+        <Box display={{ base: "none", md: "flex" }} alignItems="center" ml={6}>
           <SearchCircle />
-
           <Text
             color="#D2AC71"
-            fontSize="18px"
+            fontSize={{ base: "16px", md: "18px" }}
             ml={4}
-            w="42px"
-            h="22px"
             cursor="pointer"
             onClick={() => console.log("GOE clicked")}
           >
             GOE
           </Text>
-
           <Text
-            fontSize="18px"
+            fontSize={{ base: "16px", md: "18px" }}
             ml={4}
-            w="82px"
-            h="22px"
             cursor="pointer"
             onClick={() => console.log("EgyBook clicked")}
           >
             <chakra.span fontWeight="600" color="#D2AC71">Egy</chakra.span>
             <chakra.span fontWeight="400" color="white">Book</chakra.span>
           </Text>
-
           <Text
-            fontSize="18px"
+            fontSize={{ base: "16px", md: "18px" }}
             ml={4}
-            w="103px"
-            h="22px"
             cursor="pointer"
             onClick={() => console.log("EgyExplore clicked")}
           >
             <chakra.span fontWeight="600" color="#D2AC71">Egy</chakra.span>
             <chakra.span fontWeight="400" color="white">Explore</chakra.span>
           </Text>
-
           <Text
-            fontSize="18px"
+            fontSize={{ base: "16px", md: "18px" }}
             ml={4}
-            w="80px"
-            h="22px"
             cursor="pointer"
             onClick={() => console.log("EgyTales clicked")}
           >
             <chakra.span fontWeight="600" color="#D2AC71">Egy</chakra.span>
             <chakra.span fontWeight="400" color="white">Tales</chakra.span>
           </Text>
-
           <Text
-            fontSize="18px"
+            fontSize={{ base: "16px", md: "18px" }}
             ml={4}
-            w="112px"
-            h="22px"
             cursor="pointer"
             onClick={() => console.log("EgyTreasure clicked")}
           >
@@ -120,7 +105,7 @@ const Navbar = () => {
             <Text
               color="#F6EEE5"
               ml={2}
-              fontSize="20px"
+              fontSize={{ base: "16px", md: "20px" }}
               fontFamily="Montserrat"
               fontWeight="400"
               lineHeight="24px"

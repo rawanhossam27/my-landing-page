@@ -1,4 +1,3 @@
-// PeopleItems.js
 import { Flex, Icon, Text, Box, Portal } from '@chakra-ui/react';
 import { LuUsers } from 'react-icons/lu';
 import React, { useState, useRef, useEffect } from 'react';
@@ -14,13 +13,8 @@ const PeopleItems = () => {
   const [childCount, setChildCount] = useState(0);
   const [roomCount, setRoomCount] = useState(1);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeDropdown = () => {
-    setIsOpen(false);
-  };
+  const toggleDropdown = () => setIsOpen(!isOpen);
+  const closeDropdown = () => setIsOpen(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -34,7 +28,6 @@ const PeopleItems = () => {
         closeDropdown();
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
@@ -42,8 +35,11 @@ const PeopleItems = () => {
   useEffect(() => {
     if (isOpen && triggerRef.current) {
       const rect = triggerRef.current.getBoundingClientRect();
-      setDropdownTop(rect.bottom + window.scrollY + 18); // Moved dropdown lower
-      setDropdownLeft(rect.left + window.scrollX - 50);   // Moved dropdown more to the left
+      setDropdownTop(rect.bottom + window.scrollY + 18);
+
+      const calculatedLeft = rect.left + window.scrollX;
+      const shiftLeft = 30; // Decreased value to move dropdown to the right
+      setDropdownLeft(calculatedLeft - shiftLeft);
     } else {
       setDropdownTop(0);
       setDropdownLeft(0);
@@ -97,19 +93,12 @@ const PeopleItems = () => {
 
   return (
     <Box position="relative">
-      <Flex
-        alignItems="center"
-        cursor="pointer"
-        onClick={toggleDropdown}
-        ref={triggerRef}
-      >
+      <Flex alignItems="center" cursor="pointer" onClick={toggleDropdown} ref={triggerRef}>
         <Icon as={LuUsers} boxSize="26px" color="#D2AC71" mr={2} />
         <Text
-          width="auto"
-          height="20px"
           fontFamily="Montserrat"
           fontWeight={600}
-          fontSize="16px"
+          fontSize={{ base: '14px', sm: '16px' }}
           lineHeight="100%"
           letterSpacing="0%"
           color="#FFFFFF"
@@ -131,43 +120,39 @@ const PeopleItems = () => {
             borderRadius="30px"
             boxShadow="0px 4px 12px rgba(0, 0, 0, 0.2)"
             zIndex={9999}
-            width="316px" // Kept the original width
-            height="261px" // Kept the original height
-            p={4}
+            w={{ base: '90vw', sm: '316px' }}
+            maxW="316px"
+            h="auto"
+            p={{ base: 3, sm: 4 }}
             display="flex"
             flexDirection="column"
             alignItems="flex-start"
             justifyContent="flex-start"
           >
-            <Flex alignItems="center" mb={8} mt={6} width="100%">
-              <Box flex="1" userSelect="none"> {/* Added userSelect="none" */}
+            <Flex alignItems="center" mb={{ base: 4, sm: 6 }} mt={6} width="100%">
+              <Box flex="1" userSelect="none">
                 <Text
                   fontFamily="Montserrat"
                   fontWeight={600}
-                  fontSize="16px"
+                  fontSize={{ base: '14px', sm: '16px' }}
                   lineHeight="100%"
-                  letterSpacing="0%"
                   color="#FFFFFF"
-                  width="auto"
                 >
                   Adults
                 </Text>
                 <Text
                   fontFamily="Montserrat"
                   fontWeight={500}
-                  fontSize="12px"
-                  lineHeight="100%"
-                  letterSpacing="0%"
+                  fontSize={{ base: '11px', sm: '12px' }}
                   color="#B7B7B7"
-                  ml={0}
                 >
                   Age 18 or above
                 </Text>
               </Box>
               <Flex alignItems="center">
                 <Flex
-                  width="30px"
-                  height="30px"
+                  w="30px"
+                  h="30px"
                   borderRadius="50%"
                   border={`2px solid ${getMinusIconColor('adults')}`}
                   alignItems="center"
@@ -180,11 +165,8 @@ const PeopleItems = () => {
                 <Text
                   fontFamily="Montserrat"
                   fontWeight={500}
-                  fontSize="16px"
-                  lineHeight="100%"
-                  letterSpacing="0%"
+                  fontSize={{ base: '14px', sm: '16px' }}
                   color="#FFFFFF"
-                  width="auto"
                   minWidth="10px"
                   textAlign="center"
                   ml={2}
@@ -192,8 +174,8 @@ const PeopleItems = () => {
                   {adultCount}
                 </Text>
                 <Flex
-                  width="30px"
-                  height="30px"
+                  w="30px"
+                  h="30px"
                   borderRadius="50%"
                   border="1px solid #FFFFFF4D"
                   alignItems="center"
@@ -207,35 +189,29 @@ const PeopleItems = () => {
               </Flex>
             </Flex>
 
-            <Flex alignItems="center" justifyContent="space-between" mb={8} width="100%">
-              <Box flex="1" userSelect="none"> {/* Added userSelect="none" */}
+            <Flex alignItems="center" justifyContent="space-between" mb={{ base: 4, sm: 6 }} width="100%">
+              <Box flex="1" userSelect="none">
                 <Text
                   fontFamily="Montserrat"
                   fontWeight={600}
-                  fontSize="16px"
-                  lineHeight="100%"
-                  letterSpacing="0%"
+                  fontSize={{ base: '14px', sm: '16px' }}
                   color="#FFFFFF"
-                  width="auto"
                 >
                   Children
                 </Text>
                 <Text
                   fontFamily="Montserrat"
                   fontWeight={500}
-                  fontSize="12px"
-                  lineHeight="100%"
-                  letterSpacing="0%"
+                  fontSize={{ base: '11px', sm: '12px' }}
                   color="#B7B7B7"
-                  ml={0}
                 >
                   Under 18
                 </Text>
               </Box>
               <Flex alignItems="center">
                 <Flex
-                  width="30px"
-                  height="30px"
+                  w="30px"
+                  h="30px"
                   borderRadius="50%"
                   border={`2px solid ${getMinusIconColor('children')}`}
                   alignItems="center"
@@ -248,11 +224,8 @@ const PeopleItems = () => {
                 <Text
                   fontFamily="Montserrat"
                   fontWeight={500}
-                  fontSize="16px"
-                  lineHeight="100%"
-                  letterSpacing="0%"
+                  fontSize={{ base: '14px', sm: '16px' }}
                   color="#FFFFFF"
-                  width="auto"
                   minWidth="10px"
                   textAlign="center"
                   ml={2}
@@ -260,8 +233,8 @@ const PeopleItems = () => {
                   {childCount}
                 </Text>
                 <Flex
-                  width="30px"
-                  height="30px"
+                  w="30px"
+                  h="30px"
                   borderRadius="50%"
                   border="1px solid #FFFFFF4D"
                   alignItems="center"
@@ -275,25 +248,21 @@ const PeopleItems = () => {
               </Flex>
             </Flex>
 
-            <Flex alignItems="center" justifyContent="space-between" mb={4} width="100%">
-              <Box flex="1" userSelect="none"> {/* Added userSelect="none" */}
+            <Flex alignItems="center" justifyContent="space-between" mb={{ base: 2, sm: 4 }} width="100%">
+              <Box flex="1" userSelect="none">
                 <Text
                   fontFamily="Montserrat"
                   fontWeight={600}
-                  fontSize="16px"
-                  lineHeight="100%"
-                  letterSpacing="0%"
+                  fontSize={{ base: '14px', sm: '16px' }}
                   color="#FFFFFF"
-                  width="auto"
                 >
                   Rooms
                 </Text>
-                {/* No sub-text for Rooms yet */}
               </Box>
               <Flex alignItems="center">
                 <Flex
-                  width="30px"
-                  height="30px"
+                  w="30px"
+                  h="30px"
                   borderRadius="50%"
                   border={`2px solid ${getMinusIconColor('rooms')}`}
                   alignItems="center"
@@ -306,11 +275,8 @@ const PeopleItems = () => {
                 <Text
                   fontFamily="Montserrat"
                   fontWeight={500}
-                  fontSize="16px"
-                  lineHeight="100%"
-                  letterSpacing="0%"
+                  fontSize={{ base: '14px', sm: '16px' }}
                   color="#FFFFFF"
-                  width="auto"
                   minWidth="10px"
                   textAlign="center"
                   ml={2}
@@ -318,8 +284,8 @@ const PeopleItems = () => {
                   {roomCount}
                 </Text>
                 <Flex
-                  width="30px"
-                  height="30px"
+                  w="30px"
+                  h="30px"
                   borderRadius="50%"
                   border="1px solid #FFFFFF4D"
                   alignItems="center"
@@ -333,15 +299,11 @@ const PeopleItems = () => {
               </Flex>
             </Flex>
 
-            {/* New text at the bottom */}
             <Text
               fontFamily="Montserrat"
               fontWeight={500}
-              fontSize="12px"
-              lineHeight="100%"
-              letterSpacing="0%"
+              fontSize={{ base: '11px', sm: '12px' }}
               color="#808080"
-              width="217px"
               textAlign="center"
               mt={2}
               userSelect="none"

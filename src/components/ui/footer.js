@@ -9,26 +9,20 @@ const Footer = () => {
     { src: '/twitterx.png', alt: 'Twitter/X', href: '#' },
     { src: '/linkedin.png', alt: 'LinkedIn', href: '#' },
   ];
-  
 
   return (
-    <Box
-      w="100%"
-      h="auto"
-      py={10}
-      marginTop="0px"
-    >
+    <Box w="100%" h="auto" py={10} marginTop="0px">
       <Flex
-        direction="row" // Changed direction to row for horizontal alignment of left and right blocks
-        align="flex-start"
+        direction={{ base: 'column', md: 'row' }}
+        align={{ base: 'center', md: 'flex-start' }}
         maxW="1440px"
         mx="auto"
         px={8}
-        justifyContent="space-between" // Distribute space between the left and right blocks
-        alignItems="flex-start" // Align items to the start vertically within the row
+        justifyContent="space-between"
+        gap={{ base: 10, md: 0 }}
       >
         {/* Left Side Content */}
-        <Box>
+        <Box maxW={{ base: '100%', md: '60%' }} textAlign={{ base: 'center', md: 'left' }}>
           {/* Logo and Text */}
           <Box mb={6}>
             <Image
@@ -37,16 +31,16 @@ const Footer = () => {
               width="184px"
               height="60px"
               mb={2}
+              mx={{ base: 'auto', md: '0' }}
             />
             <Text
-              width="521px"
+              width={{ base: '100%', md: '521px' }}
               fontFamily="Montserrat"
               fontWeight="600"
-              fontSize="36px"
+              fontSize={{ base: '24px', md: '36px' }}
               lineHeight="1.2"
               letterSpacing="0%"
               color="#F6EEE5"
-              textAlign="left"
             >
               Lorem, Ipsum Lorem, Ipsum Lorem, Ipsum or less.
             </Text>
@@ -63,6 +57,7 @@ const Footer = () => {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
+                mx={{ base: 'auto', md: '0' }}
                 _hover={{ opacity: 0.8 }}
               >
                 <Text
@@ -80,7 +75,13 @@ const Footer = () => {
           </Box>
 
           {/* Navigation Links */}
-          <Flex align="center" mb={8}>
+          <Flex
+            align="center"
+            mb={8}
+            wrap="wrap"
+            justify={{ base: 'center', md: 'flex-start' }}
+            rowGap={2}
+          >
             <Link href="/" passHref>
               <Text
                 color="#D2AC71"
@@ -159,9 +160,15 @@ const Footer = () => {
         </Box>
 
         {/* Right Side Content */}
-        <Box alignSelf="flex-end">
+        <Box alignSelf={{ base: 'center', md: 'flex-end' }} textAlign={{ base: 'center', md: 'right' }}>
           {/* Social Media Icons */}
-          <Flex alignSelf="flex-end" alignItems="center" mb={2} justifyContent="flex-end">
+          <Flex
+            justify={{ base: 'center', md: 'flex-end' }}
+            alignItems="center"
+            mb={2}
+            flexWrap="wrap"
+            gap={3}
+          >
             {socialIcons.map((icon, index) => (
               <Link key={index} href={icon.href} passHref>
                 <Box
@@ -169,7 +176,6 @@ const Footer = () => {
                   height="60px"
                   bg="#D2AC71"
                   borderRadius="20px"
-                  ml={index > 0 ? 4 : 0}
                   display="flex"
                   justifyContent="center"
                   alignItems="center"
@@ -183,21 +189,14 @@ const Footer = () => {
           </Flex>
 
           {/* Copyright Text */}
-          <Box
-            textAlign="right"
-            width="336px"
-            height="54px"
-            // mt="365px" // Removed specific top margin as the Flex parent will handle vertical alignment
-            // ml="953px" // Removed specific left margin as the Flex parent will handle horizontal positioning
-          >
+          <Box width={{ base: '100%', md: '336px' }} height="auto">
             <Text
               fontFamily="Montserrat"
               fontWeight="500"
-              fontSize="20px"
+              fontSize={{ base: '16px', md: '20px' }}
               lineHeight="27px"
               letterSpacing="0%"
               color="#FFFFFF"
-              textAlign="right"
             >
               Copyright Gates of Egypt © 2024 All rights reserved
             </Text>
